@@ -4,12 +4,13 @@ namespace OpenPrivateers.Web.Theme;
 
 public static class OpenPrivateersTheme
 {
-    public static MudTheme Theme = new MudTheme()
+    public static MudTheme Theme => new MudTheme()
     {
         PaletteDark = 
         {
             Primary = "#ea580c",
-            AppbarBackground = "#000000cc",
+            AppbarBackground = "#030407cc",
+            Background = "#030407",
         },
         Typography =
         {
