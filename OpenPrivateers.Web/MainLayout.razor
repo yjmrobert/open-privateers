@@ -1,4 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using OpenPrivateers.Web.Theme
+@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="OpenPrivateersTheme.Theme" IsDarkMode />
+<MudDialogProvider/>
+<MudSnackbarProvider/>
 
 <main>
     @Body
