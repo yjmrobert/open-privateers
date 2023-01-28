@@ -1,34 +1,38 @@
 ﻿@using MudBlazor.Utilities
 <MudGrid Class="mt-16">
-        <MudItem xs="7">
-            <MudStack>
-                <MudText Typo="Typo.h1" Style="@_titleStyle">
-                    <span style="color: var(--mud-palette-primary);">O</span>pen
-                    <br/>
-                    <span style="color: var(--mud-palette-primary);">P</span>rivateers
-                    <br/>
-                    <span style="color: var(--mud-palette-primary);">A</span>greement
-                </MudText>
-                <MudText Color="Color.Primary" Typo="Typo.h4" Style="@_subtitleStyle">
-                    Infinite Lagrange's repository of knowledge, hosted by Solar Eclipse
-                </MudText>
-                <MudText Typo="Typo.body2">
-                    Rank yourself among the best of the best, and earn your place in the history of the galaxy.
-                    From tools to help you get started, to the latest and greatest in fleet design, we have it all.
-                </MudText>
-                <MudText Typo="Typo.body2">
-                    Come join us, and become a part of the community that is shaping the future of the game.
-                </MudText>
-            </MudStack>
-            <MudStack Class="my-16">
-                <MudElement>
-                    <MudButton Variant="Variant.Outlined" Color="Color.Primary" Style="@_registerStyle">
-                        <span style="color: var(--mud-palette-dark-text)">Register</span>
-                    </MudButton>
-                </MudElement>
-            </MudStack>
-        </MudItem>
-    </MudGrid>
+    <MudItem xs="7">
+        <MudStack>
+            <MudText Typo="Typo.h1" Style="@_titleStyle">
+                <span style="color: var(--mud-palette-primary);">O</span>pen
+                <br/>
+                <span style="color: var(--mud-palette-primary);">P</span>rivateers
+                <br/>
+                <span style="color: var(--mud-palette-primary);">A</span>greement
+            </MudText>
+            <MudText Color="Color.Primary" Typo="Typo.h4" Style="@_subtitleStyle">
+                Infinite Lagrange's repository of knowledge, hosted by Solar Eclipse
+            </MudText>
+            <MudText Typo="Typo.body2">
+                Rank yourself among the best of the best, and earn your place in the history of the galaxy.
+                From tools to help you get started, to the latest and greatest in fleet design, we have it all.
+            </MudText>
+            <MudText Typo="Typo.body2">
+                Come join us, and become a part of the community that is shaping the future of the game.
+            </MudText>
+        </MudStack>
+        <MudStack Class="my-16">
+            <MudElement>
+                <MudButton Variant="Variant.Filled" 
+                           Color="Color.Secondary"
+                           Style="@_registerStyle" 
+                           EndIcon="@Icons.Material.Outlined.KeyboardDoubleArrowRight"
+                           >
+                    Register
+                </MudButton>
+            </MudElement>
+        </MudStack>
+    </MudItem>
+</MudGrid>
 
 @code {
 
@@ -39,7 +43,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        
+
         _titleStyle = new StyleBuilder()
             .AddStyle("text-transform", "uppercase")
             .Build();
@@ -49,7 +53,7 @@
             .Build();
 
         _registerStyle = new StyleBuilder()
-            .AddStyle("background-color", "var(--mud-palette-dark)")
+            .AddStyle("border", "1px solid var(--mud-palette-primary)")
             .AddStyle("padding-left", "2.5rem")
             .AddStyle("padding-right", "2.5rem")
             .Build();

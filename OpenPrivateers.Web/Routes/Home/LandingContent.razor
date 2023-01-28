@@ -40,10 +40,15 @@
     <MudItem xs="3">
         <MudStack>
             <MudText Typo="Typo.h2">Recent News</MudText>
-            @foreach (var i in Enumerable.Range(0, 5))
+            @foreach (var i in Enumerable.Range(1, 5))
             {
-                <NewsReport />
+                <NewsReportPreview Thumbnail="@($"/images/thumbs/00{i}.png")"/>
             }
+            <MudStack AlignItems="AlignItems.Center">
+                <MudElement>
+                    <MudButton Variant="Variant.Filled" Color="Color.Secondary" EndIcon="@Icons.Material.Outlined.KeyboardDoubleArrowRight" Href="/news">View All News</MudButton>
+                </MudElement>
+            </MudStack>
         </MudStack>
     </MudItem>
 
@@ -64,4 +69,5 @@
         "Auxiliary",
         "Utility",
     };
+
 }

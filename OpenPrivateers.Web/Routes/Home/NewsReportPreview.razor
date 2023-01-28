@@ -1,0 +1,62 @@
+﻿@using MudBlazor.Utilities
+@inject NavigationManager _navigationManager
+
+
+<MudPaper @onclick="HandleOnClick" Elevation="8" @onmouseover="HandleMouseOver" @onmouseout="HandleMouseOut">
+    <MudPaper Style="@_currentPaperStyle">
+        <MudStack Row>
+            <MudImage Src="@Thumbnail" Height="64" Width="64" ObjectFit="ObjectFit.Cover"/>
+            <MudStack Spacing="0" Justify="Justify.Center">
+                <MudText>Three steps to Sieging a City</MudText>
+                <MudText Typo="Typo.caption">Eclipse Empire • 3h</MudText>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+</MudPaper>
+
+@code {
+
+    [Parameter]
+    public string? Url { get; set; }
+
+    [Parameter]
+    public string? Thumbnail { get; set; }
+
+    private string? _paperStyle;
+    private string? _paperStyleHover;
+    private string? _currentPaperStyle;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _paperStyle = new StyleBuilder()
+            .AddStyle("cursor", "pointer")
+            .Build();
+
+        _paperStyleHover = new StyleBuilder()
+            .AddStyle(_paperStyle)
+            .AddStyle("background-color", "var(--mud-palette-action-default-hover)")
+            .Build();
+
+        _currentPaperStyle = _paperStyle;
+    }
+
+    private void HandleOnClick(MouseEventArgs args)
+    {
+        if (Url != null)
+        {
+            _navigationManager.NavigateTo(Url);
+        }
+    }
+
+    private void HandleMouseOver(MouseEventArgs args)
+    {
+        _currentPaperStyle = _paperStyleHover;
+    }
+
+    private void HandleMouseOut(MouseEventArgs args)
+    {
+        _currentPaperStyle = _paperStyle;
+    }
+
+}

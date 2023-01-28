@@ -1,0 +1,70 @@
+﻿<MudPaper Class="pa-16 mt-16">
+    <MudContainer MaxWidth="MaxWidth.Large">
+        <MudGrid>
+            <MudItem xs="4">
+                <MudStack>
+                    <MudText Typo="Typo.h3">Ship Blueprints</MudText>
+                    @foreach (var shipClass in _shipClasses)
+                    {
+                        <MudElement>
+                            <MudLink Href="@($"/ships/{shipClass}")">@shipClass</MudLink>
+                        </MudElement>
+                    }
+                </MudStack>
+            </MudItem>
+            <MudItem xs="4">
+                <MudStack>
+                    <MudText Typo="Typo.h3">News Reports</MudText>
+                    @foreach (var report in _newsLinks)
+                    {
+                        <MudElement>
+                            <MudLink Href="@($"/news/{report}")">@report</MudLink>
+                        </MudElement>
+                    }
+                </MudStack>
+            </MudItem>
+            <MudItem xs="4">
+                <MudStack>
+                    <MudText Typo="Typo.h3">Contact</MudText>
+                    <MudElement>
+                        <MudLink Href="@_discordLink">Discord</MudLink>
+                    </MudElement>
+                    <MudElement>
+                        <MudLink Href="@_githubLink">GitHub</MudLink>
+                    </MudElement>
+                </MudStack>
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+</MudPaper>
+
+@code {
+
+    private string _discordLink = "https://discord.gg/ny4DXCcFWS";
+    private string _githubLink = "https://github.com/yjmrobert/open-privateers";
+
+
+    private List<string> _shipClasses = new()
+    {
+        "Fighter",
+        "Corvette",
+        "Frigate",
+        "Destroyer",
+        "Cruiser",
+        "Battlecruiser",
+        "Carrier",
+        "Auxiliary",
+        "Utility",
+    };
+
+    private List<string> _newsLinks = new()
+    {
+        "Killmail",
+        "Bounties",
+        "Guides",
+        "Blog",
+        "Videos",
+    };
+
+
+}

@@ -11,6 +11,7 @@ public static class OpenPrivateersTheme
         PaletteDark = 
         {
             Primary = "#ea580c",
+            Secondary = "#030407d4",
             AppbarBackground = "#030407cc",
             Background = "#030407",
             Surface = "#030407d4",
