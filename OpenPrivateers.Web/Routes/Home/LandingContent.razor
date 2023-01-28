@@ -1,0 +1,55 @@
+﻿<MudGrid>
+    <MudItem xs="2">
+        <MudNavMenu>
+            <MudText Typo="Typo.h5">Quick Navigation</MudText>
+            <MudText Typo="Typo.body2">
+                Select a ship class to browse through all ships of that class.
+            </MudText>
+            <MudDivider Class="my-2"/>
+            @foreach (var shipClass in _shipClasses)
+            {
+                <MudNavLink Href="@($"/ships/{shipClass}")" Class="d-flex align-items-center">
+                    <MudStack Justify="Justify.SpaceBetween" Row>
+                        <MudStack AlignItems="AlignItems.Center" Spacing="0" Row>
+                            <MudImage Src="@($"/images/ship-icons/{shipClass}Icon.webp")" Height="16" Width="16" ObjectFit="ObjectFit.Cover"/>
+                            <MudText Typo="Typo.body2" Class="ml-2">@shipClass</MudText>
+                        </MudStack>
+                        <MudIcon Icon="@Icons.Material.Outlined.KeyboardDoubleArrowRight"/>
+                    </MudStack>
+                </MudNavLink>
+            }
+
+        </MudNavMenu>
+    </MudItem>
+    <MudItem xs="7">
+        <MudStack>
+            <MudText Typo="Typo.h5">Ship of the Week</MudText>
+            <MudAlert Variant="Variant.Outlined">
+                <MudText Typo="Typo.body2">
+                    The FG300 is a generic multi-role frigate equipped with 3 generic rapid-fire cannons, enabling it to take on various offensive and defensive missions. It is designed with a large number of universal components and a simple structure, making it easy to manufacture. It is an ideal recon ship.
+                </MudText>
+            </MudAlert>
+            
+            <ShipPreviewCard/>
+        </MudStack>
+    </MudItem>
+
+</MudGrid>
+
+
+@code {
+
+    private List<string> _shipClasses = new()
+    {
+        "Fighter",
+        "Corvette",
+        "Frigate",
+        "Destroyer",
+        "Cruiser",
+        "Battlecruiser",
+        "Carrier",
+        "Auxiliary",
+        "Utility",
+    };
+
+}

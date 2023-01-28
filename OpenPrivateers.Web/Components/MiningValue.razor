@@ -1,0 +1,21 @@
+﻿@using OpenPrivateers.Web.Utils
+<MudStack Row Spacing="0" AlignItems="AlignItems.Center">
+    <MudText>
+        @Number
+    </MudText>
+    <MudImage Src="/images/MiningIcon.webp" Height="16" Width="16" Alt="Mining Value"/>
+</MudStack>
+
+@code {
+
+    [Parameter]
+    public int Metal { get; set; }
+    
+    [Parameter]
+    public int Crystal { get; set; }
+    
+    [Parameter]
+    public int Deuterium { get; set; }
+    
+    private string Number => ResourceConverter.ToMiningValue(Metal, Crystal, Deuterium).ToString("N0");
+}
