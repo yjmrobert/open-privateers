@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_system_systems",
+  "info": {
+    "displayName": "Module System",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Health": {
+      "type": "integer"
+    },
+    "ModuleInstallations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "system.module-installation"
+    }
+  }
+}

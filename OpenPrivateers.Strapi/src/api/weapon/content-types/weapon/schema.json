@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "weapons",
+  "info": {
+    "singularName": "weapon",
+    "pluralName": "weapons",
+    "displayName": "Weapon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Duration": {
+      "type": "integer"
+    },
+    "ProjectilesPerShot": {
+      "type": "integer"
+    },
+    "DamageType": {
+      "type": "enumeration",
+      "enum": [
+        "Projectile",
+        "Energy"
+      ]
+    },
+    "DamagePerHit": {
+      "type": "integer"
+    },
+    "AntiShipFire": {
+      "type": "decimal"
+    },
+    "AirDefense": {
+      "type": "decimal"
+    },
+    "SiegeFire": {
+      "type": "decimal"
+    },
+    "Cooldown": {
+      "type": "integer"
+    },
+    "AttackPriorities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ship-class.ship-class"
+    },
+    "PrioritizedTarget": {
+      "type": "enumeration",
+      "enum": [
+        "Aircraft",
+        "Small Ship",
+        "Medium Ship",
+        "Large Ship"
+      ]
+    },
+    "Abilities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ability.ability"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "LockOnTime": {
+      "type": "integer"
+    },
+    "Classification": {
+      "type": "enumeration",
+      "enum": [
+        "Cannon",
+        "Railgun"
+      ]
+    },
+    "Subname": {
+      "type": "string"
+    },
+    "ShotsPerCycle": {
+      "type": "integer"
+    }
+  }
+}

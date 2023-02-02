@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_system_weapons",
+  "info": {
+    "displayName": "Weapon System",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Health": {
+      "type": "integer"
+    },
+    "WeaponInstallations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "system.weapon-installation"
+    }
+  }
+}
