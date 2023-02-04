@@ -6,6 +6,7 @@ public class Weapon : BaseEntity
     public string? Name { get; set; }
     public string? SubName { get; set; }
     public string? Description { get; set; }
+    public WeaponClassification? WeaponClassification { get; set; }
     
     public DamageType? DamageType { get; set; }
     public string? PrioritizedTarget { get; set; }
