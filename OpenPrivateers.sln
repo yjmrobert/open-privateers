@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPrivateers.Web", "OpenP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPrivateers.API", "OpenPrivateers.API\OpenPrivateers.API.csproj", "{9CE843FE-3AF1-4881-8084-7667DB100AD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPrivateers.API.UnitTests", "OpenPrivateers.API.UnitTests\OpenPrivateers.API.UnitTests.csproj", "{3DDAF4F0-601B-4C80-8EA6-902659739F57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{9CE843FE-3AF1-4881-8084-7667DB100AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE843FE-3AF1-4881-8084-7667DB100AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE843FE-3AF1-4881-8084-7667DB100AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DDAF4F0-601B-4C80-8EA6-902659739F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDAF4F0-601B-4C80-8EA6-902659739F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDAF4F0-601B-4C80-8EA6-902659739F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDAF4F0-601B-4C80-8EA6-902659739F57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -28,4 +28,11 @@ public class OpenPrivateersContext : DbContext
     public OpenPrivateersContext(DbContextOptions<OpenPrivateersContext> options) : base(options)
     {
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        this.SeedShipData(modelBuilder);
+    }
 }
