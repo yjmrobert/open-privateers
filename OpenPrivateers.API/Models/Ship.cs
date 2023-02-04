@@ -8,8 +8,8 @@ public class Ship : BaseEntity
     public string? Description { get; set; }
     public string? ImageUrl { get; set; }
     
-    public ShipClass ShipClass { get; set; }
+    public ShipClass? ShipClass { get; set; }
     
-    List<ShipSystem>? ShipSystems { get; set; }
-    List<WeaponSystem>? WeaponSystems { get; set; }
+    public List<ShipSystem>? ShipSystems { get; set; }
+    public List<WeaponSystem>? WeaponSystems { get; set; }
 }

@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using OpenPrivateers.API.Models;
+using OpenPrivateers.API.Validators;
 
 namespace OpenPrivateers.API.UnitTests;
 
@@ -22,14 +23,27 @@ public class Tests
     }
 
     [Test]
-    public void CanSerializeJsonIntoShip()
+    [TestCase("FG300_A.json")]
+    public void CanSerializeJsonIntoShip(string shipFileName)
     {
         // serialize ../OpenPrivateers.API/Data/FG300_A.json into a Ship object
+
+        var shipJson = File.ReadAllText($"{ShipDataDirectoryPath}/{shipFileName}");
+        var ship = JsonSerializer.Deserialize<Ship>(shipJson);
         
-        var fg300AJson = File.ReadAllText($"{ShipDataDirectoryPath}/FG300_A.json");
-        var fg300A = JsonSerializer.Deserialize<Ship>(fg300AJson);
+        // assert that every property is not null
+        Assert.That(ship, Is.Not.Null);
         
-        Assert.That(fg300A, Is.Not.Null);
-        Assert.That(fg300A?.Name, Is.EqualTo("FG300"));
+        // create validator and assert that the ship is valid
+        var validator = new ShipValidator();
+        var validationResult = validator.Validate(ship!);
+        
+        
+        Assert.That(validationResult.IsValid, Is.True, 
+            validationResult.Errors.Any() ? 
+                validationResult.Errors
+                    .Select(x => x.ErrorMessage)
+                    .Aggregate((x, y) => $"{x}, {y}") : 
+                "No errors found");
     }
 }

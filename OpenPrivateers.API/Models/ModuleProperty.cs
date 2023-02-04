@@ -2,13 +2,13 @@
 
 namespace OpenPrivateers.API.Models;
 
-[PrimaryKey(nameof(ShipModuleId), nameof(AttributeId))]
+[PrimaryKey(nameof(ShipModuleId), nameof(GameAttributeId))]
 public class ModuleProperty
 {
     public int ShipModuleId { get; set; }
-    public int AttributeId { get; set; }
+    public int GameAttributeId { get; set; }
     public int Value { get; set; }
     
     public ShipModule? ShipModule { get; set; }
-    public Attribute? Attribute { get; set; }
+    public GameAttribute? GameAttribute { get; set; }
 }

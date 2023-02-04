@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OpenPrivateers.API.Models;
-using Attribute = OpenPrivateers.API.Models.Attribute;
 
 namespace OpenPrivateers.API.Database;
 
@@ -8,7 +7,7 @@ public class OpenPrivateersContext : DbContext
 {
     public DbSet<Ability> Abilities { get; set; }
     public DbSet<AttackPriority> AttackPriorities { get; set; }
-    public DbSet<Attribute> Attributes { get; set; }
+    public DbSet<GameAttribute> GameAttributes { get; set; }
     
     public DbSet<DamageType> DamageTypes { get; set; }
     public DbSet<ModuleInstallation> ModuleInstallations { get; set; }
