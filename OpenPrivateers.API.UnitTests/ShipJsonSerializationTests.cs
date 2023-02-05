@@ -8,8 +8,9 @@ namespace OpenPrivateers.API.UnitTests;
 public class Tests
 {
     
-    private static readonly string ShipDataDirectoryPath =
+    private static readonly string DataDirectoryPath =
         Path.Join(Directory.GetCurrentDirectory(), "../../../../OpenPrivateers.API/Data");
+    private static string ShipDirectoryPath => DataDirectoryPath + "/Ships";
     
     [SetUp]
     public void Setup()
@@ -24,11 +25,13 @@ public class Tests
 
     [Test]
     [TestCase("FG300_A.json")]
+    [TestCase("FG300_B.json")]
+    [TestCase("FG300_C.json")]
     public void CanSerializeJsonIntoShip(string shipFileName)
     {
         // serialize ../OpenPrivateers.API/Data/FG300_A.json into a Ship object
 
-        var shipJson = File.ReadAllText($"{ShipDataDirectoryPath}/{shipFileName}");
+        var shipJson = File.ReadAllText($"{ShipDirectoryPath}/{shipFileName}");
         var ship = JsonSerializer.Deserialize<Ship>(shipJson);
         
         // assert that every property is not null
@@ -37,7 +40,6 @@ public class Tests
         // create validator and assert that the ship is valid
         var validator = new ShipValidator();
         var validationResult = validator.Validate(ship!);
-        
         
         Assert.That(validationResult.IsValid, Is.True, 
             validationResult.Errors.Any() ? 
