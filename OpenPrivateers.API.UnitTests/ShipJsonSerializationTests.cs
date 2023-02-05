@@ -5,7 +5,7 @@ using OpenPrivateers.API.Validators;
 
 namespace OpenPrivateers.API.UnitTests;
 
-public class Tests
+public class ShipJsonSerializationTests
 {
     
     private static readonly string DataDirectoryPath =
