@@ -1,0 +1,36 @@
+﻿@inject IJSRuntime _jsRuntime
+
+@implements IDisposable
+
+@page "/intel"
+
+<div id="map" style="height: 80vh; width: 90vw; background-color: transparent; margin: auto;"></div>
+
+@code {
+
+    private IJSObjectReference _leafletModule;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        _leafletModule = await _jsRuntime.InvokeAsync<IJSObjectReference>("import", "./Routes/Intel/IntelIndex.razor.js");
+        await _leafletModule.InvokeVoidAsync("initMap");
+    }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+        {
+        }
+    }
+    
+    
+    public void Dispose()
+    {
+        _leafletModule.DisposeAsync().GetAwaiter().GetResult();
+    }
+
+}

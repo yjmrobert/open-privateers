@@ -45,4 +45,27 @@ public class CsvImportTests
                     "No errors found");
         });
     }
+
+    [Test]
+    public void CanImportShipClassesCsvTest()
+    {
+        // import the csv and convert each row into a ShipClass
+        using var reader = new StreamReader($"{DataDirectoryPath}/ShipClasses.csv");
+        using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+        var records = csv.GetRecords<ShipClass>();
+        
+        // assert that each ship class is valid
+        var validator = new ShipClassValidator();
+        records.ToList().ForEach(shipClass =>
+        {
+            var validationResult = validator.Validate(shipClass);
+            
+            Assert.That(validationResult.IsValid, Is.True, 
+                validationResult.Errors.Any() ? 
+                    validationResult.Errors
+                        .Select(x => x.ErrorMessage)
+                        .Aggregate((x, y) => $"{x}, {y}") : 
+                    "No errors found");
+        });        
+    }
 }

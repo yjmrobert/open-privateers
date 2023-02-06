@@ -6,9 +6,11 @@ namespace OpenPrivateers.API.Validators;
 
 public class ShipValidator : AbstractValidator<Ship>
 {
-    public ShipValidator(bool navigationValidation = false)
+    public ShipValidator(bool collectionNavigationValidation = false)
     {
         // rules for simple properties
+        RuleFor(x => x!.Id)
+            .NotEmpty();
         RuleFor(x => x.Name)
             .NotEmpty();
         RuleFor(x => x.VariantName)
@@ -21,18 +23,19 @@ public class ShipValidator : AbstractValidator<Ship>
         RuleFor(x => x.ImageUrl)
             .NotEmpty();
 
-        if (!navigationValidation)
-            return;
 
         // rule for navigation property
         RuleFor(x => x.ShipClass)
             .NotEmpty()
             .SetValidator(new ShipClassValidator());
 
+        if (!collectionNavigationValidation)
+            return;
+        
         // rule for collection navigation property
         RuleFor(x => x.ShipSystems)
             .NotEmpty()
-            .ForEach(x => x.SetValidator(new ShipSystemValidator(navigationValidation)));
+            .ForEach(x => x.SetValidator(new ShipSystemValidator(collectionNavigationValidation)));
         RuleFor(x => x.WeaponSystems)
             .NotEmpty();
     }
