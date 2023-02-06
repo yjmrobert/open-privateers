@@ -3,7 +3,7 @@
 export function initMap() {
     const map = L.map('map', {
         crs: L.CRS.Simple,
-        minZoom: -4,
+        minZoom: -3,
     });
 
     const imageUrl = "https://openprivateersstorage.blob.core.windows.net/opa-images/intel-bg_1000x1000.jpg";
@@ -41,10 +41,15 @@ export function initMap() {
         redraw: 'move',
         hidden: false,
         zoomIntervals: [
-            {start: -4, end: -2, interval: 1000},
-            {start: -2, end: 0, interval: 100},
-            
-            {start: 0, end: 2, interval: 10},
+            {start: -3, end: -2, interval: 1000},
+            {start: -1, end: -1, interval: 500},
+            {start: 0, end: 0, interval: 250},
+            {start: 1, end: 1, interval: 100},
+            {start: 2, end: 2, interval: 50},
+            {start: 3, end: 3, interval: 25},
+            {start: 4, end: 4, interval: 10},
+            {start: 5, end: 5, interval: 5},
+            {start: 6, end: 6, interval: 1},
             // {start: 4, end: 5, interval: 5},
             // {start: 6, end: 20, interval: 1}
         ]
@@ -52,7 +57,7 @@ export function initMap() {
 
     L.simpleGraticule(options).addTo(map);
 
-    map.setView([4500, 4500], 0);
+    map.setView([4500, 4500], -3);
 
 }
 

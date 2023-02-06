@@ -13,7 +13,11 @@
     },
     {
       "route": "/login",
-      "rewrite": "/.auth/login/github"
+      "rewrite": "/.auth/login/aad"
+    },
+    {
+      "route": "/.auth/login/github",
+      "statusCode": 404
     },
     {
       "route": "/.auth/login/twitter",
