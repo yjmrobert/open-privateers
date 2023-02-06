@@ -3,8 +3,7 @@
 export function initMap() {
     const map = L.map('map', {
         crs: L.CRS.Simple,
-        minZoom: -5,
-        backgroundColor: '#000000'
+        minZoom: -4,
     });
 
     const imageUrl = "https://openprivateersstorage.blob.core.windows.net/opa-images/intel-bg_1000x1000.jpg";
@@ -27,11 +26,31 @@ export function initMap() {
             lines.forEach(function (item, index) {
                 if (index == 0) return; // skip the header row
                 let cols = item.split(',');
-                L.marker([cols[1], cols[2]])
+                
+                // parse as an integer and add 0.5
+                let x = parseInt(cols[1], 10) + 0.5;
+                let y = parseInt(cols[2], 10) + 0.5;
+                
+                L.marker([x,y])
                     .bindPopup(cols[0])
                     .addTo(map);
             });
         });
+
+    var options = {interval: 20,
+        redraw: 'move',
+        hidden: false,
+        zoomIntervals: [
+            {start: -4, end: -2, interval: 1000},
+            {start: -2, end: 0, interval: 100},
+            
+            {start: 0, end: 2, interval: 10},
+            // {start: 4, end: 5, interval: 5},
+            // {start: 6, end: 20, interval: 1}
+        ]
+    };
+
+    L.simpleGraticule(options).addTo(map);
 
     map.setView([4500, 4500], 0);
 
