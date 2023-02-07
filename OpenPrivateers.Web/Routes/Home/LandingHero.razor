@@ -1,4 +1,6 @@
 ﻿@using MudBlazor.Utilities
+
+
 <MudGrid Class="mt-16">
     <MudItem xs="7">
         <MudStack>
@@ -21,16 +23,30 @@
             </MudText>
         </MudStack>
         <MudStack Class="my-16">
-            <MudElement>
-                <MudButton Variant="Variant.Filled" 
-                           Color="Color.Secondary"
-                           Href="/login"
-                           Style="@_registerStyle" 
-                           EndIcon="@Icons.Material.Outlined.KeyboardDoubleArrowRight"
-                           >
-                    Login
-                </MudButton>
-            </MudElement>
+            <AuthorizeView>
+                <Authorized>
+                    <MudElement>
+                        <MudButton Variant="Variant.Filled"
+                                   Color="Color.Secondary"
+                                   Href="@DiscordUrl"
+                                   Style="@_registerStyle"
+                                   StartIcon="@Icons.Custom.Brands.Discord">
+                            Discord
+                        </MudButton>
+                    </MudElement>
+                </Authorized>
+                <NotAuthorized>
+                    <MudElement>
+                        <MudButton Variant="Variant.Filled"
+                                   Color="Color.Secondary"
+                                   Href="/login"
+                                   Style="@_registerStyle"
+                                   EndIcon="@Icons.Material.Outlined.KeyboardDoubleArrowRight">
+                            Login
+                        </MudButton>
+                    </MudElement>
+                </NotAuthorized>
+            </AuthorizeView>
         </MudStack>
     </MudItem>
 </MudGrid>
@@ -40,6 +56,8 @@
     private string? _titleStyle;
     private string? _subtitleStyle;
     private string? _registerStyle;
+
+        private const string DiscordUrl = "https://discord.gg";
 
     protected override void OnInitialized()
     {

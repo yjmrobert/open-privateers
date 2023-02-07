@@ -1,0 +1,14 @@
+{
+  "name": "openprivateers.swa.emulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "swa start http://localhost:5197"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/static-web-apps-cli": "^1.0.6"
+  }
+}
