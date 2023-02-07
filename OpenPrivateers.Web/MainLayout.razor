@@ -13,6 +13,7 @@
             <MudSpacer/>
             <AuthorizeView>
                 <Authorized>
+                    <MudText Class="mr-2" Typo="Typo.body2">Hello, @context.User.Identity.Name</MudText>
                     <MudButton Href="@LogoutUrl">Log out</MudButton>
                 </Authorized>
                 <NotAuthorized>
@@ -31,7 +32,7 @@
 @code {
 
     private string? _backgroundStyle;
-    private const string LogoutUrl = "./auth/logout?post_logout_redirect_uri=/";
+    private const string LogoutUrl = "/.auth/logout?post_logout_redirect_uri=/";
     private const string LoginUrl = "/login";
 
     protected override void OnInitialized()
