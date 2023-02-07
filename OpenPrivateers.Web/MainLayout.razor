@@ -9,12 +9,20 @@
 <main>
     <MudLayout>
         <MudAppBar Elevation="0">
-            <MudText Class="ml-3">OPA</MudText>
+            <MudButton Href="/" Class="ml-3">OPA</MudButton>
             <MudSpacer/>
+            <AuthorizeView>
+                <Authorized>
+                    <MudButton Href="@LogoutUrl">Log out</MudButton>
+                </Authorized>
+                <NotAuthorized>
+                    <MudButton Href="@LoginUrl">Log in</MudButton>
+                </NotAuthorized>
+            </AuthorizeView>
         </MudAppBar>
         <MudMainContent Style="@_backgroundStyle">
             @Body
-            <MainFooter />
+            <MainFooter/>
         </MudMainContent>
     </MudLayout>
 </main>
@@ -23,6 +31,8 @@
 @code {
 
     private string? _backgroundStyle;
+    private const string LogoutUrl = "./auth/logout?post_logout_redirect_uri=/";
+    private const string LoginUrl = "/login";
 
     protected override void OnInitialized()
     {

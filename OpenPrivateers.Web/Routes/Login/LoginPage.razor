@@ -1,0 +1,49 @@
+﻿@page "/login"
+@using OpenPrivateers.Web.Theme
+
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudPaper Class="pa-16 mt-16">
+        <MudNavMenu>
+            <MudText Typo="Typo.h2" Class="px-4">Login Providers</MudText>
+            <MudDivider Class="my-2"/>
+            @foreach (var provider in _providers)
+            {
+                <MudPaper Style="@($"--mud-palette-action-default-hover: {OpenPrivateersTheme.DarkActionHover};")">
+                    <MudNavLink Href="@($"/.auth/login/{provider.Value[1]}")" Icon="@provider.Value[0]">
+                        <MudText Typo="Typo.body2">
+                            Sign in with @provider.Value[2]
+                        </MudText>
+                    </MudNavLink>
+                </MudPaper>
+            }
+        </MudNavMenu>
+    </MudPaper>
+</MudContainer>
+
+@code {
+
+    private readonly Dictionary<string, string[]> _providers = new()
+    {
+        {
+            "github",
+            new[] { Icons.Custom.Brands.GitHub, "github", "GitHub" }
+        },
+        {
+            "twitter",
+            new[] { Icons.Custom.Brands.Twitter, "twitter", "Twitter" }
+        },
+        {
+            "microsoft",
+            new[] { Icons.Custom.Brands.MicrosoftWindows, "aad", "Microsoft" }
+        },
+        {
+            "google",
+            new[] { Icons.Custom.Brands.Google, "google", "Google" }
+        },
+        {
+            "discord",
+            new[] { Icons.Custom.Brands.Discord, "discord", "Discord" }
+        }
+    };
+
+}

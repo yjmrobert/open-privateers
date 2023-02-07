@@ -1,7 +1,9 @@
-﻿@inject IJSRuntime _jsRuntime
-
+﻿@using Microsoft.AspNetCore.Authorization
 @implements IDisposable
 
+@inject IJSRuntime _jsRuntime
+
+@attribute [Authorize]
 @page "/intel"
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="mt-16">

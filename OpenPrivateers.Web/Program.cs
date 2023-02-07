@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Azure.Functions.Authentication.WebAssembly;
 using MudBlazor.Services;
 using OpenPrivateers.Web;
 
@@ -10,5 +11,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddMudServices();
+builder.Services.AddStaticWebAppsAuthentication();
 
 await builder.Build().RunAsync();
