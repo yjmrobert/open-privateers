@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPrivateers.Domain", "Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPrivateers.Migrations", "OpenPrivateers.Migrations\OpenPrivateers.Migrations.csproj", "{222ADEBA-4DA0-4EEF-AFFD-EBE3498E1539}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{CF6F9A4A-A822-481F-918D-267F241756B5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,5 @@ Global
 		{222ADEBA-4DA0-4EEF-AFFD-EBE3498E1539}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{222ADEBA-4DA0-4EEF-AFFD-EBE3498E1539}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{222ADEBA-4DA0-4EEF-AFFD-EBE3498E1539}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF6F9A4A-A822-481F-918D-267F241756B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF6F9A4A-A822-481F-918D-267F241756B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF6F9A4A-A822-481F-918D-267F241756B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF6F9A4A-A822-481F-918D-267F241756B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
