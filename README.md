@@ -1,10 +1,10 @@
 # Open Privateers
 
-This repository holds the source code for the Open Privateers project.
+This repository holds the source code for the Open Privateers project for Infinite Lagrange, a military science fiction real-time strategy game.
 
 ## What is Open Privateers?
 
-Open Privateers is a fan project, and is not affiliated with the game's developers. The goal is to create a resource that is easy to navigate and understand, and to provide a place for the community to share their knowledge and experiences.
+Open Privateers is a fan-made project and is not affiliated with Infinite Lagrange's developers at NetEase Games. Its goal is to create a resource that is easy to navigate and understand but robust and comprehensive, providing a place for the game community to share their knowledge and experiences.
 
 ## How can I help?
 
